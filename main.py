@@ -14,7 +14,7 @@ embeddings = OpenAIEmbeddings()
 db = FAISS.load_local("faiss_index", embeddings)
 
 # Create a retrieval chain with the ChatOpenAI model
-chain = RetrievalQAWithSourcesChain.from_chain_type(llm=ChatOpenAI(model_name=OPENAI_MODEL, temperature=0), chain_type="stuff", retriever=db.as_retriever(), max_tokens_limit=3500, reduce_k_below_max_tokens=True)
+chain = RetrievalQAWithSourcesChain.from_chain_type(llm=ChatOpenAI(model_name=OPENAI_MODEL, temperature=0), chain_type="stuff", retriever=db.as_retriever(), max_tokens_limit=3000, reduce_k_below_max_tokens=True)
 
 # Streamlit input field and text area
 st.title("台灣法規問答 AI")
